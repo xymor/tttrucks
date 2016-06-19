@@ -3,12 +3,15 @@ class Ability
 
   def initialize(user)
 
-    if user.has_role? :admin
-      can :manage, :all
-    end
 
-    if user.has_role? :store_keeper
-      can :update, Store
+    if user
+      if user.has_role? :admin
+        can :manage, :all
+      end
+
+      if user.has_role? :store_keeper
+        can :update, Store
+      end
     end
 
     can :read, :all
