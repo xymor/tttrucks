@@ -1,10 +1,19 @@
 class StoresController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_store, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   # GET /stores
   # GET /stores.json
   def index
     @stores = Store.all
+    authorize! :read, @stores
+  end
+  
+  def home
+    @stores = Store.all
+    authorize! :read, @stores
   end
 
   # GET /stores/1
@@ -25,7 +34,7 @@ class StoresController < ApplicationController
   # POST /stores.json
   def create
     @store = Store.new(store_params)
-
+    authorize! :manage, @store
     respond_to do |format|
       if @store.save
         format.html { redirect_to @store, notice: 'Store was successfully created.' }

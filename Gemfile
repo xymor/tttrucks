@@ -18,6 +18,9 @@ gem 'devise'
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+gem 'rails_admin'
+gem 'cancancan', '~> 1.10'
+gem 'rolify'
 
 group :development, :test do
   gem 'byebug'
