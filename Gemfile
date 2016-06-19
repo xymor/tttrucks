@@ -24,6 +24,10 @@ gem 'rails_admin'
 gem 'cancancan', '~> 1.10'
 gem 'rolify'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
