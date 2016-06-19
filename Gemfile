@@ -24,6 +24,8 @@ gem 'rails_admin'
 gem 'cancancan', '~> 1.10'
 gem 'rolify'
 
+gem 'rails_12factor' #, group: :production
+
 group :production do
   gem 'rails_12factor'
 end
