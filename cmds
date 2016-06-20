@@ -1,0 +1,10 @@
+
+
+rails new tttruck --skip-active-record -O
+rails g mongoid:config
+
+rails g scaffold Store name:string email:string open:boolean image:string photos:array tags:array description:string lat:BigDecimal long:BigDecimal votes:nteger props:hash
+
+rails generate devise User
+rails generate cancan:ability
+rails generate rolify Role User

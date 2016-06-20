@@ -10,10 +10,9 @@ class StoresController < ApplicationController
     @stores = Store.all
     authorize! :read, @stores
   end
-  
+
   def home
     @stores = Store.all
-    authorize! :read, @stores
   end
 
   # GET /stores/1
@@ -78,6 +77,6 @@ class StoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
-      params.require(:store).permit(:photos_list, :tags_list, :props_hash, :name, :email, :open, :image, :photos, :tags, :description, :lat, :long, :votes, :props)
+      params.require(:store).permit(:photos_list, :tags_list, :props_hash, :name, :email, :open, :image, :photos, :tags, :description, :lat, :lng, :votes, :props)
     end
 end

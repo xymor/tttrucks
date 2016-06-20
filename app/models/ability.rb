@@ -12,9 +12,9 @@ class Ability
       if user.has_role? :store_keeper
         can :update, Store
       end
+    else
+      can :read, :all
     end
-
-    can :read, :all
 
     # Define abilities for the passed in user here. For example:
     #

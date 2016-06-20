@@ -8,8 +8,8 @@ class Store
   field :tags, type: Array
   field :description, type: String
   field :lat, type: BigDecimal
-  field :long, type: BigDecimal
-  field :votes, type: Integer
+  field :lng, type: BigDecimal
+  field :votes, type: Integer, default: 0
   field :props, type: Hash
 
   def tags_list=(arg)
@@ -42,6 +42,10 @@ class Store
 
   def as_indexed_json(options={})
     as_json()
+  end
+
+  def main_image
+     photos[0] if photos
   end
 
 end
