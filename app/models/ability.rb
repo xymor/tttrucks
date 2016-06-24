@@ -2,13 +2,12 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-
+    user ||= User.new # This initializer is creating your memory-only guest users
 
     if user
       if user.has_role? :admin
         can :manage, :all
       end
-
       if user.has_role? :store_keeper
         can :update, Store
       end
