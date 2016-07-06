@@ -14,6 +14,11 @@ class StoresController < ApplicationController
     @stores = Store.all
   end
 
+  def vote
+    authorize! :vote, @store
+    Store.voteUp(params[:id])
+  end
+
   # GET /stores/1
   # GET /stores/1.json
   def show

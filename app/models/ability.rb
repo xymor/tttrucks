@@ -11,6 +11,9 @@ class Ability
       if user.has_role? :store_keeper
         can :update, Store
       end
+      if user.has_role? :user
+        can :vote, Store
+      end
     else
       can :read, :all
     end

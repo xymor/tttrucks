@@ -12,6 +12,12 @@ class Store
   field :votes, type: Integer, default: 0
   field :props, type: Hash
 
+  def self.voteUp(id)
+    s = Store.find(id)
+    s.votes++
+    s.save
+  end
+
   def tags_list=(arg)
     self.tags = arg.split(',').map { |v| v.strip }
   end
